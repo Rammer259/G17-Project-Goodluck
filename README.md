@@ -6,7 +6,7 @@ to configure/install the program simply download and compile all .java files fro
 Operating the Program:
 To use the program in its current state you must launch it from the command prompt console using the "java" command. Use "java" to launch the program from the file "EmployeeManagement" (do not include " symbols in the command or filename). 
 
-To begin using the program you must input your full name. If you have already registered with the system you will be prompted to enter your password. Simply enter your password to access the main menu. If you do not have a registered account, you will be prompted to select a new password (use no spaces in this password) for the account. Choosing your password will register your new account. 
+To begin using the program you must input your full name. If you have already registered with the system you will be prompted to enter your password. If you are using this program for the first time, you will have to register an account which creates a text file in the folder. Simply enter your password to access the main menu and if you do not have a registered account, you will be prompted to create password (use no spaces in this password) for the account. Choosing your password will register your new account. 
 
 The main menu will display all "tool" options. Simply enter an option into the console to use it. "COUNT" will count the number of employees and print that number to the console. "ADD" will allow you to add new employee names to the list of employees by appending the names to your account file. "VIEW" allow you to view the list of all employee names.
 
