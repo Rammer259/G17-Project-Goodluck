@@ -3,8 +3,8 @@ import java.util.*;
 
 /**
  * This class opens, reads, and prints every line to the text file.
- * 
- * @author Sofian Mustafa
+ * Adapted from https://www.youtube.com/watch?v=3RNYUKxAgmw
+ *
  */
 public class ReadFile {
 	private Scanner newScanner;
