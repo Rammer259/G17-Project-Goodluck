@@ -52,7 +52,7 @@ public class EmployeeManagement {
 		name = keyboard.nextLine();
 		String filename = name + ".txt";
 
-		// Create File
+		// Create File. Adapted from https://www.youtube.com/watch?v=k3K9KHPYZFc
 		File file = new File(filename);
 
 		// Check whether the file exists(returns True or False)
