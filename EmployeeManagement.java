@@ -65,7 +65,7 @@ public class EmployeeManagement {
 
 		/**
 		 *  if the file does not exist, prompt a registration. This includes
-		 *  creating a writer object and print object.
+		 *  creating a writer object and print object. Adapated from https://www.youtube.com/watch?v=k3K9KHPYZFc
 		 */
 		if (!exists) {
 			System.out.print("Welcome New User, Please Choose a Password: ");
