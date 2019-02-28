@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * This class opens, reads, and prints every line to the text file.
+ * This class opens, reads, and prints every line to the console
  * Adapted from https://www.youtube.com/watch?v=3RNYUKxAgmw
  *
  */
