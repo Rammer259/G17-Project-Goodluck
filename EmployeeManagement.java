@@ -52,13 +52,13 @@ public class EmployeeManagement {
 		name = keyboard.nextLine();
 		String filename = name + ".txt";
 
-		// Create File. Adapted from https://www.youtube.com/watch?v=k3K9KHPYZFc
+		// Create File.
 		File file = new File(filename);
 
 		// Check whether the file exists(returns True or False)
 		boolean exists = file.exists();
 
-		// if the file does not exist, prompt a registration
+		// if the file does not exist, prompt a registration. Adapted from https://www.youtube.com/watch?v=k3K9KHPYZFc
 		if (!exists) {
 			System.out.print("Welcome New User, Please Choose a Password: ");
 			password = keyboard.nextLine();
