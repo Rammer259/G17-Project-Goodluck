@@ -7,8 +7,6 @@ import java.util.*;
  /**
   * This is the Main class for the program.
   * 
-  * @author Akshat Passi
-  * @author Sofian Mustafa
   */
 
 public class EmployeeManagement {
@@ -17,7 +15,8 @@ public class EmployeeManagement {
 
     /**
 	 * This method displays the number of employees listed in the text file
-	 * 
+	 * adapted from https://stackoverflow.com/questions/1277880/how-can-i-get-the-count-of-line-in-a-file-in-an-efficient-way 
+	 *
 	 * @param filename
 	 * @return employeeCount
 	 * @throws IOException
