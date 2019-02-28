@@ -29,7 +29,7 @@ public class EmployeeManagement {
 	}
 
    /**
-    * This method appends employees into existing text files
+    	* This method appends employees into existing text files
 	* 
 	* @param employee
 	* @param file
@@ -44,8 +44,8 @@ public class EmployeeManagement {
 	}
 
     /**
-     * Main argument that creates an employee file.
-     * 
+     	* Main argument that creates an employee file.
+     	* 
 	 * @param args
 	 * @throws IOException
 	 */
