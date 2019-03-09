@@ -1,6 +1,11 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
 
 /**
  * This class utilizes methods from the EmployeeManagement superclass 
@@ -70,6 +75,24 @@ public class MenuTools extends EmployeeManagement {
 			 */
 			if (choice.equalsIgnoreCase("COUNT")) {
 				System.out.println("Number of employees hired: " + numEmployees(filename));
+			}
+			
+			if (choice.equalsIgnoreCase("RENAME")) {
+				System.out.println("Enter the name you want to replace:");
+				String name = keyboard.nextLine();
+				
+				File oldName = new File(name + ".txt");
+				
+				boolean exists = oldName.exists();
+				
+				if(exists == true){
+					System.out.println("Enter the replaced name:");
+					String renameName = keyboard.nextLine();
+					setName(name, renameName);
+				}
+				else{
+					System.out.println("That name does not exist.");
+				}
 			}
 			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
 			choice = keyboard.nextLine();

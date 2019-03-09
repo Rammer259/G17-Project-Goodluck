@@ -24,8 +24,15 @@ public class EmployeeManagement {
 	public static long numEmployees(String filename) throws IOException {
 		Path path = Paths.get(filename);
 		long lineCount = Files.lines(path).count();
-		long employeeCount = lineCount - 1;
+		long employeeCount = lineCount - 2;
 		return employeeCount;
+	}
+
+	public void setName(String name, String renameName){
+		File oldName = new File(name + ".txt");
+		File newName = new File(renameName + ".txt");
+		oldName.renameTo(newName);
+		System.out.println("Successfully renamed " + name + " to " + renameName);
 	}
 
    /**
@@ -37,6 +44,7 @@ public class EmployeeManagement {
 	*/
 	public static void addEmployee(String employee, File file) throws IOException {
 		FileWriter writer = new FileWriter(file, true);
+		Employee E = new Employee(employee);
 		// Create Print object
 		PrintWriter printer = new PrintWriter(writer);
 		printer.println(employee);
@@ -52,7 +60,7 @@ public class EmployeeManagement {
 	public static void main(String[] args) throws IOException {
 		String name;
 		Scanner keyboard = new Scanner(System.in);
-		System.out.print("Hello Please Enter Your First and Last Name(ex: BobSmith): ");
+		System.out.print("Hello. Please Enter Your First and Last Name(ex: BobSmith): ");
 		name = keyboard.nextLine();
 		String filename = name + ".txt";
 		File file = new File(filename);
@@ -73,7 +81,8 @@ public class EmployeeManagement {
 			FileWriter writer = new FileWriter(file);
 			PrintWriter printer = new PrintWriter(writer);
 			
-			printer.println("Password" + ": " + password);
+			printer.println("Password: " + password);
+			printer.println("Admin");
 			printer.close();
 			
 			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
