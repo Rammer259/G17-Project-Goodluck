@@ -94,8 +94,10 @@ public class MenuTools extends EmployeeManagement {
 					System.out.println("That name does not exist.");
 				}
 			}
+			System.out.println("----------------------------------------------------------------------------------------------------------------");
 			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
-			choice = keyboard.nextLine();
+			System.out.println("----------------------------------------------------------------------------------------------------------------");
+		choice = keyboard.nextLine();
 		}
 	}
 }
