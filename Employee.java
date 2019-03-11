@@ -9,15 +9,11 @@ public class Employee extends EmployeeManagement{
 	private String name;
  	private String title = "employee";
 	private double salary = 12345; 
-	private int EmployeeID = 1;
-	private double hours;
 	
 	public Employee(String name) throws IOException{
 		setName(name);
 		newEmployee(name);
-		EmployeeID++;
 	}
-	public Employee(){}
 	
  	public Employee(Employee copyEmployee){
 		name = copyEmployee.name;
@@ -32,7 +28,7 @@ public class Employee extends EmployeeManagement{
 		FileWriter writer = new FileWriter(filename);
 		PrintWriter printer = new PrintWriter(writer);
 		printer.println(defaultPassword);
-		printer.println(EmployeeID);
+		printer.println(title);
 		printer.println(salary);
 		printer.close();
 	}
@@ -61,9 +57,6 @@ public class Employee extends EmployeeManagement{
 	}
 	public double getSalary(){
 		return salary;
-	}
-	public double getHours(){
-		return hours;
 	}
 	
 }
