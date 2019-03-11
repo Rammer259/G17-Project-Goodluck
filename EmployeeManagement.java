@@ -12,6 +12,11 @@ import java.util.*;
 public class EmployeeManagement {
 
 	private static String password;
+	
+	//Getter Method
+	public static String getPass() {
+		return password;
+	}
 
     /**
 	 * This method displays the number of employees listed in the text file
@@ -55,9 +60,9 @@ public class EmployeeManagement {
      	* Main argument that creates an employee file.
      	* 
 	 * @param args
-	 * @throws IOException
+     * @throws Exception 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		String name;
 		Scanner keyboard = new Scanner(System.in);
 		System.out.print("Hello. Please Enter Your First and Last Name(ex: BobSmith): ");
@@ -72,7 +77,7 @@ public class EmployeeManagement {
 
 		/**
 		 *  if the file does not exist, prompt a registration. This includes
-		 *  creating a writer object and print object. Adapated from https://www.youtube.com/watch?v=k3K9KHPYZFc
+		 *  creating a writer object and print object. Adapted from https://www.youtube.com/watch?v=k3K9KHPYZFc
 		 */
 		if (!exists) {
 			System.out.print("Welcome New User, Please Choose a Password: ");
@@ -94,6 +99,7 @@ public class EmployeeManagement {
 			 */
 			MenuTools choiceObj = new MenuTools(choice, filename, keyboard, file);
 			choiceObj.loop();
+	
 		}
 
 		/**
@@ -130,6 +136,8 @@ public class EmployeeManagement {
 					MenuTools choiceObj = new MenuTools(choice, filename, keyboard, file);
 					choiceObj.loop();
 				}
+				
+				
 
 				/**
 				 *  If wrong, the user is inserted to a loop where they are informed
@@ -158,8 +166,12 @@ public class EmployeeManagement {
 
 					}
 				}
+				
+				
+
 
 			}
 		}
 	}
+	
 }
