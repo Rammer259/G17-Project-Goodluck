@@ -1,20 +1,22 @@
-/**
- * Sample Skeleton for 'Login.fxml' Controller Class
- */
 
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class Controller {
+    @FXML // fx:id="Admin_Tab"
+    private Tab Admin_Tab; // Value injected by FXMLLoader
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -45,18 +47,36 @@ public class Controller {
 
     @FXML // fx:id="Lable_PLI"
     private Label Lable_PLI; // Value injected by FXMLLoader
+    
+    @FXML // fx:id="AsAdmin_Button"
+    private RadioButton AsAdmin_Button; // Value injected by FXMLLoader
 
     @FXML
     void program_login(ActionEvent event) throws IOException {
-    	AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
-    	Primary_Pane.getChildren().setAll(pane);
+    	if (AsAdmin_Button.isSelected()) {
+    		
+    		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+    		Primary_Pane.getChildren().setAll(pane);
+    	}
+    	else {
+    		System.out.println("");
+    		
+        	AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen1.fxml"));
+        	Primary_Pane.getChildren().setAll(pane);
+        	
+        	
+    	}
     	
 
     }
 
     @FXML
     void program_quit(ActionEvent event) {
-
+    	Platform.exit();
+    }
+    @FXML
+    void program_toggle_admin(ActionEvent event) {
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
@@ -69,6 +89,8 @@ public class Controller {
         assert Label_U != null : "fx:id=\"Label_U\" was not injected: check your FXML file 'Login.fxml'.";
         assert Label_P != null : "fx:id=\"Label_P\" was not injected: check your FXML file 'Login.fxml'.";
         assert Lable_PLI != null : "fx:id=\"Lable_PLI\" was not injected: check your FXML file 'Login.fxml'.";
+        assert AsAdmin_Button != null : "fx:id=\"AsAdmin_Button\" was not injected: check your FXML file 'Login.fxml'.";
+        assert Admin_Tab != null : "fx:id=\"Admin_Tab\" was not injected: check your FXML file 'Screen2.fxml'.";
 
     }
 }
