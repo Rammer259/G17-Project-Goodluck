@@ -32,12 +32,11 @@ public class Employee extends EmployeeManagement{
 		FileWriter writer = new FileWriter(filename);
 		PrintWriter printer = new PrintWriter(writer);
 		printer.println("Password: ");
+		printer.println(title);
 		printer.println(EmployeeID);
 		printer.println(salary);
+		printer.println(hours);
 		printer.close();
-	}
-	
-	public void existingPasswordEmployee() throws IOException{
 	}
 	
 	public void setName(String name, String renameName){
