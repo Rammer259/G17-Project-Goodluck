@@ -7,6 +7,7 @@ import java.util.*;
 public class Employee extends EmployeeManagement{
 
 	private String name;
+	private String filename;
  	private String title = "employee";
 	private double salary = 12345; 
 	private int EmployeeID = 1;
@@ -14,8 +15,10 @@ public class Employee extends EmployeeManagement{
 	
 	public Employee(String name) throws IOException{
 		setName(name);
+		this.filename = name + ".txt";
+		File file = new File(filename);
+		FileWriter writer = new FileWriter(filename);
 		newEmployee(name);
-		EmployeeID++;
 	}
 	public Employee(){}
 	
@@ -26,15 +29,15 @@ public class Employee extends EmployeeManagement{
 	} 
 	
 	public void newEmployee(String name) throws IOException{
-		String filename = name + ".txt";
-		String defaultPassword = "Password:";
-		File file = new File(filename);
 		FileWriter writer = new FileWriter(filename);
 		PrintWriter printer = new PrintWriter(writer);
-		printer.println(defaultPassword);
+		printer.println("Password: ");
 		printer.println(EmployeeID);
 		printer.println(salary);
 		printer.close();
+	}
+	
+	public void existingPasswordEmployee() throws IOException{
 	}
 	
 	public void setName(String name, String renameName){
@@ -65,5 +68,4 @@ public class Employee extends EmployeeManagement{
 	public double getHours(){
 		return hours;
 	}
-	
 }

@@ -91,7 +91,7 @@ public class MenuTools extends EmployeeManagement {
 					setName(name, renameName);
 				}
 				else{
-					System.out.println("That name does not exist.");
+					System.out.println("That employee does not exist.");
 				}
 			}
 			System.out.println("----------------------------------------------------------------------------------------------------------------");

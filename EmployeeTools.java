@@ -34,27 +34,27 @@ public class EmployeeTools extends Employee{
 	 * @throws IOException
 	 */
 	public void loop() throws IOException {
-		while (!choice.equalsIgnoreCase("X")) 
+		while (!choice.equalsIgnoreCase("X")) {
 
-			/**
-			 *  
-			 * 
-			 */
 			if (choice.equalsIgnoreCase("VIEW")) {
 				
 				System.out.println("----------------");
-				System.out.println("Upcoming tasks: insert tasks here. ");
+				System.out.println("Upcoming tasks: " + getTasks());
 				System.out.println("----------------");
+				
 			}
+
 			if(choice.equalsIgnoreCase("HOURS")){
 				
-				System.out.println("----------------");
-				System.out.println("Hours: ");
-				
+				System.out.println("-------");
+				System.out.println("Hours: " + getHours());
+				System.out.println("-------");
 			}
+			
 			System.out.println("-----------------------------------------------------------------------------------");
 			System.out.println("'VIEW' to check upcoming tasks, 'HOURS' to check weekly hours, 'X' to exit program:");
 			System.out.println("-----------------------------------------------------------------------------------");
-			choice = keyboard.nextLine();
+		choice = keyboard.nextLine();
 		}
 	}
+}
