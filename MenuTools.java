@@ -14,7 +14,7 @@ import java.util.*;
  * @author Akshat Passi
  * @author Sofian Mustafa
  */
-public class MenuTools extends EmployeeManagement {
+public class MenuTools extends Admin {
 	private static String choice;
 	private static String filename;
 	static Scanner keyboard = new Scanner(System.in);
@@ -100,9 +100,9 @@ public class MenuTools extends EmployeeManagement {
 					System.out.println("That employee does not exist.");
 				}
 			}
-			System.out.println("----------------------------------------------------------------------------------------------------------------");
-			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
-			System.out.println("----------------------------------------------------------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'RENAME' to rename an employee, 'X' to exit program:");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 		choice = keyboard.nextLine();
 		}
 	}

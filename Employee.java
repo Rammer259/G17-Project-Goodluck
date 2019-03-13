@@ -5,6 +5,12 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Employee extends EmployeeManagement{
+	
+	/**
+	*
+	*Instance variables for new employees.
+	*
+	**/
 
 	private String name;
 	private String filename;
@@ -12,6 +18,12 @@ public class Employee extends EmployeeManagement{
 	private double salary = 12345; 
 	private int EmployeeID = 1;
 	private double hours;
+	
+	/**
+	*
+	* Constructor for new employees which create a new text file when the admin adds the employee.
+	*
+	**/
 	
 	public Employee(String name) throws IOException{
 		setName(name);
@@ -22,11 +34,23 @@ public class Employee extends EmployeeManagement{
 	}
 	public Employee(){}
 	
+	/**
+	*
+	* Copy constructor for an employee.
+	*
+	**/
+	
  	public Employee(Employee copyEmployee){
 		name = copyEmployee.name;
 		title = copyEmployee.title;
 		salary = copyEmployee.salary;
 	} 
+	
+	/**
+	*
+	* Method which adds default information to the employee file. 
+	*
+	**/
 	
 	public void newEmployee(String name) throws IOException{
 		FileWriter writer = new FileWriter(filename);
@@ -39,12 +63,12 @@ public class Employee extends EmployeeManagement{
 		printer.close();
 	}
 	
-	public void setName(String name, String renameName){
-		File oldName = new File(this.name + ".txt");
-		File newName = new File(name + ".txt");
-		oldName.renameTo(newName);
-		setName(name);
-	}
+	/**
+	*
+	* Setter methods for each instance variable.
+	*
+	**/
+	
 	public void setName(String name){
 		this.name = name;
 	}
@@ -55,6 +79,16 @@ public class Employee extends EmployeeManagement{
 	public void setSalary(double salary){
 		this.salary = salary;
 	}
+	public void setHours(double hours){
+		this.hours = hours;
+	}
+	
+	/**
+	*
+	* Getter methods for each instance variable.
+	*
+	**/
+	
 	public String getName(){
 		return name;
 	}

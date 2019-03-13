@@ -15,28 +15,8 @@ public class EmployeeManagement {
 
 	private static String password;
 
-    /**
-	 * This method displays the number of employees listed in the text file
-	 * adapted from https://stackoverflow.com/questions/1277880/how-can-i-get-the-count-of-line-in-a-file-in-an-efficient-way 
-	 *
-	 * @param filename
-	 * @return employeeCount
-	 * @throws IOException
-	 */
-	public static long numEmployees(String filename) throws IOException {
-		Path path = Paths.get(filename);
-		long lineCount = Files.lines(path).count();
-		long employeeCount = lineCount - 2;
-		return employeeCount;
-	}
 
-	public void setName(String name, String renameName){
-		File oldName = new File(name + ".txt");
-		File newName = new File(renameName + ".txt");
-		oldName.renameTo(newName);
-		System.out.println("Successfully renamed " + name + " to " + renameName);
-	}
-
+	
 	public String getTasks(){
 		String tasks = "insert tasks here.";
 		return tasks;
@@ -44,22 +24,6 @@ public class EmployeeManagement {
 	
 	public String getPassword(){
 		return password;
-	}
-
-   /**
-    	* This method appends employees into existing text files
-	* 
-	* @param employee
-	* @param file
-	* @throws IOException
-	*/
-	public static void addEmployee(String employee, File file) throws IOException {
-		FileWriter writer = new FileWriter(file, true);
-		Employee E = new Employee(employee);
-		// Create Print object
-		PrintWriter printer = new PrintWriter(writer);
-		printer.println(employee);
-		printer.close();
 	}
 
     /**
@@ -82,7 +46,7 @@ public class EmployeeManagement {
 			
 			
 			System.out.println("------------------------------------------------------------");
-			System.out.println("Hello. Please Enter Your First and Last Name.(ex: BobSmith): ");
+			System.out.println("Hello. Please Enter Your First and Last Name.(ex: BobSmith):");
 			System.out.println("------------------------------------------------------------");
 		
 			name = keyboard.nextLine();
@@ -229,9 +193,9 @@ public class EmployeeManagement {
 				
 				a.newAdmin(password);
 				
-				System.out.println("----------------------------------------------------------------------------------------------------------------");
-				System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
-				System.out.println("----------------------------------------------------------------------------------------------------------------");
+				System.out.println(System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'RENAME' to rename an employee, 'X' to exit program:");
+				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 				
 				String choice = keyboard.nextLine();
 
@@ -250,9 +214,9 @@ public class EmployeeManagement {
 			else{
 				a.existingAdmin();
 				
-				System.out.println("----------------------------------------------------------------------------------------------------------------");
-				System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
-				System.out.println("----------------------------------------------------------------------------------------------------------------");
+				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'RENAME' to rename an employee, 'X' to exit program:");
+				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 						
 				String choice = keyboard.nextLine();
 
