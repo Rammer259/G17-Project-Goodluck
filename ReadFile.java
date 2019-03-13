@@ -40,11 +40,16 @@ public class ReadFile {
 		 * String a, the second to String b, and so on. Adapted from
 		 * https://www.youtube.com/watch?v=3RNYUKxAgmw
 		 */
-		while (newScanner.hasNext()) {
+		 String p = newScanner.next();
+		 String p2 = newScanner.next();
+		while (newScanner.hasNext()){
 			String a = newScanner.next();
-			System.out.printf("%s\n", a);
+			if(!a.matches("Admin")){
+				System.out.printf("%s\n", a);
+				}
+			}
 		}
-	}
+	
 	
 	/**
 	 * Void function that closes the file.

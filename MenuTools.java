@@ -48,10 +48,12 @@ public class MenuTools extends EmployeeManagement {
 			 *  to add until they enter '/quit'.
 			 */
 			if (choice.equalsIgnoreCase("ADD")) {
+				System.out.println("");
 				System.out.print("Add an employee (/back to return to menu): ");
 				String employee = keyboard.nextLine();
 
 				while (!employee.equalsIgnoreCase("/back")) {
+					System.out.println("");
 					addEmployee(employee, file);
 					System.out.print("Add an employee (/back to return to menu): ");
 					employee = keyboard.nextLine();
@@ -63,6 +65,9 @@ public class MenuTools extends EmployeeManagement {
 			 *  by line by calling the ReadFile class.
 			 */
 			if (choice.equalsIgnoreCase("VIEW")) {
+				System.out.println("");
+				System.out.println("EMPLOYEES:");
+				System.out.println("----------");
 				ReadFile r = new ReadFile(filename);
 				r.openFile();
 				r.readFile();
@@ -74,6 +79,7 @@ public class MenuTools extends EmployeeManagement {
 			 *  and prints the count of the employees.
 			 */
 			if (choice.equalsIgnoreCase("COUNT")) {
+				System.out.println("");
 				System.out.println("Number of employees hired: " + numEmployees(filename));
 			}
 			

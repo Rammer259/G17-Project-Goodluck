@@ -41,6 +41,10 @@ public class EmployeeManagement {
 		String tasks = "insert tasks here.";
 		return tasks;
 	}
+	
+	public String getPassword(){
+		return password;
+	}
 
    /**
     	* This method appends employees into existing text files
