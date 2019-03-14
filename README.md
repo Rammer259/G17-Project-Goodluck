@@ -33,13 +33,16 @@ ReadFile.Java
 
 MenuTools.Java
 
+EncryptDecrypt.java
+
 EmployeeManagement.Class
 
 ReadFile.Class
 
 MenuTools.Class
 
-EncryptDecrypt.java
+EncryptDecrypt.Class
+
 
 NOTES:
 
