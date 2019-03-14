@@ -15,14 +15,11 @@ public class EncryptDecrypt extends EmployeeManagement {
 	private static String nameOfAl = "AES";
 	private byte[] valueOfKey;
 	
-	public EncryptDecrypt() {
-		
-	}
 	public EncryptDecrypt(String key) {
 		valueOfKey = key.getBytes();
 	}
 	
-	public void encrypt (String fileName) throws Exception{
+	public String encrypt (String fileName) throws Exception{
 		
 		//**************************************
 		//https://stackoverflow.com/questions/14169661/read-complete-file-without-using-loop-in-java
@@ -40,15 +37,12 @@ public class EncryptDecrypt extends EmployeeManagement {
 		c.init(Cipher.ENCRYPT_MODE, key);			
 		byte[] encVal = c.doFinal(allData.getBytes());
 		String encryptedValue = Base64.getEncoder().encodeToString(encVal);
-		
-		
-		FileWriter writer = new FileWriter("file", false);
-		PrintWriter printer = new PrintWriter(writer);
-		
-		printer.print(encryptedValue);
-		printer.close();
+			
+		System.out.println(encryptedValue);
+		return encryptedValue;
 	}
-	public void decrypt (String encryptedData) throws Exception{
+	public String decrypt (String encryptedData) throws Exception{
+		
 		Key key = generateKey();
 		Cipher c = Cipher.getInstance(nameOfAl);
 		c.init(Cipher.DECRYPT_MODE, key);
@@ -56,16 +50,28 @@ public class EncryptDecrypt extends EmployeeManagement {
 		byte [] decValue = c.doFinal(decodedValue);
 		String decryptedValue = new String(decValue);
 		
-		FileWriter writer = new FileWriter("file", false);
-		PrintWriter printer = new PrintWriter(writer);
-		
-		printer.print(decryptedValue);
-		printer.close();
-		
+		System.out.println(decryptedValue);
+		return decryptedValue;
 		
 	}
 	
-	
+	public static void main(String args[]) {
+	try {
+		EncryptDecrypt process = new EncryptDecrypt("fdskjfsadufis.aldfjlsfl.");
+		String v = process.encrypt("JohnCena.txt");
+		
+		FileWriter writer = new FileWriter("JohnCena.txt", false);
+		PrintWriter printer = new PrintWriter(writer);
+		
+		printer.println(v + " **Yeah the Encrypted String");
+		String decData = process.decrypt(v);
+		printer.println(decData + " **Yeah The Decrypted String");
+		printer.close();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
 
 	
 	private Key generateKey() throws Exception{
