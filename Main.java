@@ -1,6 +1,8 @@
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -8,16 +10,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 	
-	public static void main(String[] args) {
-		Application.launch(args);
+	public void start(Stage stage)throws Exception{
+		Parent root = (Parent) FXMLLoader.load(getClass().getResource("/Login.fxml"));
+		
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setTitle("Employee Management System");
+		stage.setResizable(false);
+		stage.show();
 	}
 	
-	public void start(Stage primaryStage) throws Exception {
-		FXMLLoader loader = new FXMLLoader(Main.class.getResource("/Login.fxml"));
-		Pane mainPane = loader.load();
-		
-		primaryStage.setScene(new Scene(mainPane));
-		primaryStage.show();
+	public static void main(String[] args) {
+		launch(args);
 	}
 
 }
