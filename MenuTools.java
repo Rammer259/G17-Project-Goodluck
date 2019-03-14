@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.*;
 
 /**
- * This class utilizes methods from the EmployeeManagement superclass 
+ * This class utilizes methods from the Admin class 
  * and allows the user to loop through the menu.
  * 
  * @author Akshat Passi
@@ -94,7 +94,7 @@ public class MenuTools extends Admin {
 				if(exists == true){
 					System.out.println("Enter the replaced name:");
 					String renameName = keyboard.nextLine();
-					setName(name, renameName);
+					renameEmployee(name, renameName);
 				}
 				else{
 					System.out.println("That employee does not exist.");

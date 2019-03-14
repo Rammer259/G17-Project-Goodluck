@@ -14,8 +14,6 @@ import java.nio.charset.StandardCharsets;
 public class EmployeeManagement {
 
 	private static String password;
-
-
 	
 	public String getTasks(){
 		String tasks = "insert tasks here.";
@@ -58,10 +56,11 @@ public class EmployeeManagement {
 			/**
 			 *  Checks whether the file exists and returns either True or False.
 			 */
-			 
+			
 			boolean exists = file.exists();
 			
 			Scanner scanner = new Scanner(file);
+			
 			/**
 			 *  if the file does not exist, prompts an error message. 
 			 */
@@ -70,9 +69,12 @@ public class EmployeeManagement {
 			}
 		
 			/**
-			 *  if the file does exist, the user is prompted to confirm the password
-			 *  associated with their account (specified text file).
-			 */
+			 *  If the file does exist, the user is prompted to confirm the password
+			 *  associated with their account (specified text file). If the employee
+			 *  has not logged in before, it will prompt the employee to create a new
+			 *  password. 
+			 *  https://stackoverflow.com/questions/3935791/find-and-replace-words-lines-in-a-file
+			 */ 
 			else{
 				String line = scanner.nextLine();
 				boolean correctPass = false;
@@ -193,7 +195,7 @@ public class EmployeeManagement {
 				
 				a.newAdmin(password);
 				
-				System.out.println(System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 				System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'RENAME' to rename an employee, 'X' to exit program:");
 				System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 				
