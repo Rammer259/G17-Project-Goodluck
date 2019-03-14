@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
@@ -31,6 +32,9 @@ public class Controller {
 
     @FXML // fx:id="Primary_Pane"
     private AnchorPane Primary_Pane; // Value injected by FXMLLoader
+    
+    @FXML // fx:id="AdminList_Pane"
+    private ListView<?> AdminList_Pane; // Value injected by FXMLLoader
 
     @FXML // fx:id="Password_Field"
     private TextField Password_Field; // Value injected by FXMLLoader
