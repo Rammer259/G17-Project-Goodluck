@@ -18,8 +18,13 @@ public class EncryptDecrypt extends EmployeeManagement {
 	public EncryptDecrypt(String key) {
 		valueOfKey = key.getBytes();
 	}
-	
 	//Adapted from https://www.youtube.com/watch?v=uxyGJMBs2dI
+	/** 
+	 * Takes in data from textfile and returns encrypted String
+	 * @param fileName
+	 * @return
+	 * @throws Exception
+	 */
 	public String encrypt (String fileName) throws Exception{
 		
 		//**************************************
@@ -42,6 +47,12 @@ public class EncryptDecrypt extends EmployeeManagement {
 		System.out.println(encryptedValue);
 		return encryptedValue;
 	}
+	/**
+	 * Takes in the encrypted String and outputs orginal String
+	 * @param encryptedData
+	 * @return
+	 * @throws Exception
+	 */
 	public String decrypt (String encryptedData) throws Exception{
 		
 		Key key = generateKey();
@@ -55,7 +66,10 @@ public class EncryptDecrypt extends EmployeeManagement {
 		return decryptedValue;
 		
 	}
-	
+	/**
+	 * Main Program for this class
+	 * @param args
+	 */
 	public static void main(String args[]) {
 	try {
 		EncryptDecrypt process = new EncryptDecrypt("fdskjfsadufis.aldfjlsfl.");
@@ -74,7 +88,11 @@ public class EncryptDecrypt extends EmployeeManagement {
 	}
 	}
 
-	
+	/**
+	 * Generates Key that will be used for the Encryption/Decryption
+	 * @return
+	 * @throws Exception
+	 */
 	private Key generateKey() throws Exception{
 		Key key = new SecretKeySpec(valueOfKey,nameOfAl);
 		return key;
