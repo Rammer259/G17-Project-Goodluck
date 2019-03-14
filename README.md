@@ -12,7 +12,7 @@ The main menu will display all "tool" options. Simply enter an option into the c
 
 To exit any tool simply enter "/back" when prompted for input within the tool. This will return you to the main menu. Once in the main menu entering "x" or "X" will exit the program.
 
-The Gui is currently for demonstration usage only. It does not require a correct password or username to function, and does not check if the user is an administrator. Checking the adminstrator radio button allows the program to decide whether to allow you to access basic functions only, or all functions. The Quit button will immediately end the program.
+The Gui is currently for demonstration usage only. It does not require a correct password or username to function, and does not check if the user is an administrator. Checking the adminstrator radio button allows the program to decide whether to allow you to access basic functions only, or all functions. The Quit button will immediately end the program. To run it, compile Main.java, and Controller.Java, then run Main.class.
 
 File Manifest:
 Upon installation, assuming you have registered no new accounts you should have the following files
@@ -39,5 +39,8 @@ ReadFile.Class
 
 MenuTools.Class
 
+EncryptDecrypt.java
+
+NOTES:
 
 The EncryptionDecryption class is functional in its ability to encrypt and decrypt data from text files and print the data as string back into the textfiles. Currently the Encryption System is set to read a file name "JohnCena.txt", with further work it will take in a file name from the main method and encrypt all files created. To run the Encryption just create a File called JohnCena with data inside  in the same folder and run the EncryptionDecryption Class. The Main Method inside the class will run the process
