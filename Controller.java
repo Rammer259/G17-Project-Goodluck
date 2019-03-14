@@ -13,8 +13,13 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-
+/*
+ * this class controllers and handles all the displayed gui's and acts as the controlling class for every fxml file.
+ */
 public class Controller {
+	/*
+	 * these are all the objects from the fxml file that we may need to interact with or update, as of current many are unused. 
+	 */
     @FXML // fx:id="Admin_Tab"
     private Tab Admin_Tab; // Value injected by FXMLLoader
 
@@ -51,6 +56,12 @@ public class Controller {
     @FXML // fx:id="AsAdmin_Button"
     private RadioButton AsAdmin_Button; // Value injected by FXMLLoader
 
+    /*
+     * Handles button clicks, admin identification, and scene-swapping.
+     * @Param event
+     * @throws IOExcpetion
+     */
+    
     @FXML
     void program_login(ActionEvent event) throws IOException {
     	if (AsAdmin_Button.isSelected()) {
@@ -69,11 +80,20 @@ public class Controller {
     	
 
     }
+    
+    /*
+     * handles the user clicking the "quit" button.
+     * @param event
+     */
 
     @FXML
     void program_quit(ActionEvent event) {
     	Platform.exit();
     }
+    /*
+     * currently unused method for interacting with "Employee Management" class
+     * @param even
+     */
     @FXML
     void program_toggle_admin(ActionEvent event) {
     	

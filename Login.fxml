@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="Primary_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
@@ -14,7 +15,10 @@
       <Button fx:id="Log_In_Button" layoutX="175.0" layoutY="250.0" mnemonicParsing="false" onAction="#program_login" text="Log In" AnchorPane.rightAnchor="75.0" />
       <Label fx:id="Label_U" layoutX="14.0" layoutY="88.0" text="Username:" AnchorPane.leftAnchor="14.0" />
       <Label fx:id="Label_P" layoutX="14.0" layoutY="138.0" text="Password:" AnchorPane.leftAnchor="14.0" />
-      <RadioButton fx:id="AsAdmin_Button" layoutX="146.0" layoutY="278.0" mnemonicParsing="false" onAction="#program_toggle_admin" text="Log In As Admin" />
+      <RadioButton fx:id="AsAdmin_Button" layoutX="146.0" layoutY="278.0" mnemonicParsing="false" onAction="#program_toggle_admin" text="Log In As Admin">
+         <tooltip>
+            <Tooltip text="Check This To Access Your Administrative Account" />
+         </tooltip></RadioButton>
       <Label fx:id="Lable_PLI" layoutX="116.0" layoutY="44.0" text="Please Log In" />
    </children>
 </AnchorPane>
