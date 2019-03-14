@@ -8,13 +8,13 @@ import java.nio.file.Paths;
 import java.util.*;
 
 /**
- * This class utilizes methods from the EmployeeManagement superclass 
+ * This class utilizes methods from the Admin class 
  * and allows the user to loop through the menu.
  * 
  * @author Akshat Passi
  * @author Sofian Mustafa
  */
-public class MenuTools extends EmployeeManagement {
+public class MenuTools extends Admin {
 	private static String choice;
 	private static String filename;
 	static Scanner keyboard = new Scanner(System.in);
@@ -48,10 +48,12 @@ public class MenuTools extends EmployeeManagement {
 			 *  to add until they enter '/quit'.
 			 */
 			if (choice.equalsIgnoreCase("ADD")) {
+				System.out.println("");
 				System.out.print("Add an employee (/back to return to menu): ");
 				String employee = keyboard.nextLine();
 
 				while (!employee.equalsIgnoreCase("/back")) {
+					System.out.println("");
 					addEmployee(employee, file);
 					System.out.print("Add an employee (/back to return to menu): ");
 					employee = keyboard.nextLine();
@@ -63,6 +65,9 @@ public class MenuTools extends EmployeeManagement {
 			 *  by line by calling the ReadFile class.
 			 */
 			if (choice.equalsIgnoreCase("VIEW")) {
+				System.out.println("");
+				System.out.println("EMPLOYEES:");
+				System.out.println("----------");
 				ReadFile r = new ReadFile(filename);
 				r.openFile();
 				r.readFile();
@@ -74,6 +79,7 @@ public class MenuTools extends EmployeeManagement {
 			 *  and prints the count of the employees.
 			 */
 			if (choice.equalsIgnoreCase("COUNT")) {
+				System.out.println("");
 				System.out.println("Number of employees hired: " + numEmployees(filename));
 			}
 			
@@ -88,14 +94,16 @@ public class MenuTools extends EmployeeManagement {
 				if(exists == true){
 					System.out.println("Enter the replaced name:");
 					String renameName = keyboard.nextLine();
-					setName(name, renameName);
+					renameEmployee(name, renameName);
 				}
 				else{
-					System.out.println("That name does not exist.");
+					System.out.println("That employee does not exist.");
 				}
 			}
-			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'X' to exit program:");
-			choice = keyboard.nextLine();
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("'ADD' to add employee, 'VIEW' to view employees, 'COUNT' to display number of employees hired, 'RENAME' to rename an employee, 'X' to exit program:");
+			System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
+		choice = keyboard.nextLine();
 		}
 	}
 }
