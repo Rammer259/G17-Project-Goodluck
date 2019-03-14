@@ -19,6 +19,7 @@ public class EncryptDecrypt extends EmployeeManagement {
 		valueOfKey = key.getBytes();
 	}
 	
+	//Adapted from https://www.youtube.com/watch?v=uxyGJMBs2dI
 	public String encrypt (String fileName) throws Exception{
 		
 		//**************************************
