@@ -58,7 +58,7 @@ public class Admin{
 	*
 	*/
 
-	public void setName(String name, String renameName) throws IOException{
+	public void renameEmployee(String name, String renameName) throws IOException{
 		File oldName = new File(name + ".txt");
 		File newName = new File(renameName + ".txt");
 		oldName.renameTo(newName);
