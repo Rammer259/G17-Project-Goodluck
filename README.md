@@ -38,3 +38,6 @@ EmployeeManagement.Class
 ReadFile.Class
 
 MenuTools.Class
+
+
+The EncryptionDecryption class is functional in its ability to encrypt and decrypt data from text files and print the data as string back into the textfiles. Currently the Encryption System is set to read a file name "JohnCena.txt", with further work it will take in a file name from the main method and encrypt all files created. To run the Encryption just create a File called JohnCena with data inside  in the same folder and run the EncryptionDecryption Class. The Main Method inside the class will run the process
