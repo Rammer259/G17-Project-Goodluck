@@ -9,7 +9,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="Secondary_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <TabPane prefHeight="300.0" prefWidth="300.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -61,14 +61,14 @@
                                  <children>
                                     <ToolBar layoutX="7.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <items>
-                                        <Button mnemonicParsing="false" text="View Employee Manifest" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Add Employee" />
+                                        <Button fx:id="View_Employee_Manifest_Button" mnemonicParsing="false" onAction="#program_view_manifest" text="View Employee Manifest" />
+                                          <Button fx:id="AddEmployee_Button" mnemonicParsing="false" onAction="#program_add_employee" prefHeight="25.0" prefWidth="134.0" text="Add Employee" />
                                       </items>
                                     </ToolBar>
                                     <ToolBar layoutX="6.0" layoutY="47.0" prefHeight="47.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                       <items>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Remove Employee" />
-                                          <Button mnemonicParsing="false" text="Set Hours" />
+                                        <Button fx:id="RemoveEmployee_Button" mnemonicParsing="false" onAction="#program_remove_employee" prefHeight="25.0" prefWidth="118.0" text="Remove Employee" />
+                                          <Button fx:id="Set_Shift_Button" mnemonicParsing="false" onAction="#program_open_shift_window" text="Set Shift" />
                                           <Button mnemonicParsing="false" onAction="#program_quit" text="Quit Program" />
                                       </items>
                                     </ToolBar>

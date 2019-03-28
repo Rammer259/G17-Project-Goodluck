@@ -1,120 +1,363 @@
 
-
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
 /*
  * this class controllers and handles all the displayed gui's and acts as the controlling class for every fxml file.
  */
-public class Controller {
+public class Controller extends EmployeeManagementGUI{
 	/*
-	 * these are all the objects from the fxml file that we may need to interact with or update, as of current many are unused. 
+	 * these are all the objects from the fxml file that we may need to interact
+	 * with or update, as of current many are unused.
 	 */
-    @FXML // fx:id="Admin_Tab"
-    private Tab Admin_Tab; // Value injected by FXMLLoader
 
-    @FXML // ResourceBundle that was given to the FXMLLoader
-    private ResourceBundle resources;
+	@FXML // ResourceBundle that was given to the FXMLLoader
+	private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
-    private URL location;
+	@FXML // URL location of the FXML file that was given to the FXMLLoader
+	private URL location;
 
-    @FXML // fx:id="Primary_Pane"
-    private AnchorPane Primary_Pane; // Value injected by FXMLLoader
-    
-    @FXML // fx:id="AdminList_Pane"
-    private ListView<?> AdminList_Pane; // Value injected by FXMLLoader
+	@FXML // fx:id="FirstName_Field" via Screen_Add_Employee
+	private TextField FirstName_Field; //
 
-    @FXML // fx:id="Password_Field"
-    private TextField Password_Field; // Value injected by FXMLLoader
+	@FXML // fx:id="LastName_Field" via Screen_Add_Employee
+	private TextField LastName_Field; //
 
-    @FXML // fx:id="Username_Field"
-    private TextField Username_Field; // Value injected by FXMLLoader
+	@FXML // fx:id="Department_Field" via Screen_Add_Employee
+	private TextField Department_Field;
 
-    @FXML // fx:id="Quit_Button"
-    private Button Quit_Button; // Value injected by FXMLLoader
+	@FXML // fx:id="Shift_Field" via Screen_Add_Employee
+	private TextField Shift_Field;
 
-    @FXML // fx:id="Log_In_Button"
-    private Button Log_In_Button; // Value injected by FXMLLoader
+	@FXML // fx:id="Salary_Field" via Screen_Add_Employee
+	private TextField Salary_Field;
 
-    @FXML // fx:id="Label_U"
-    private Label Label_U; // Value injected by FXMLLoader
+	@FXML // fx:id="Phone_Field" via Screen_Add_Employee
+	private TextField Phone_Field;
 
-    @FXML // fx:id="Label_P"
-    private Label Label_P; // Value injected by FXMLLoader
+	@FXML // fx:id="Admin_Tab" via Screen2
+	private Tab Admin_Tab;
 
-    @FXML // fx:id="Lable_PLI"
-    private Label Lable_PLI; // Value injected by FXMLLoader
-    
-    @FXML // fx:id="AsAdmin_Button"
-    private RadioButton AsAdmin_Button; // Value injected by FXMLLoader
+	@FXML // fx:id="Primary_Pane" via Login
+	private AnchorPane Primary_Pane;
 
-    /*
-     * Handles button clicks, admin identification, and scene-swapping.
-     * @Param event
-     * @throws IOExcpetion
-     */
-    
-    @FXML
-    void program_login(ActionEvent event) throws IOException {
-    	if (AsAdmin_Button.isSelected()) {
-    		
-    		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
-    		Primary_Pane.getChildren().setAll(pane);
-    	}
-    	else {
-    		System.out.println("");
-    		
-        	AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen1.fxml"));
-        	Primary_Pane.getChildren().setAll(pane);
-        	
-        	
-    	}
-    	
+	@FXML // fx:id="Secondary_Pane" via Screen2
+	private AnchorPane Secondary_Pane;
 
-    }
-    
-    /*
-     * handles the user clicking the "quit" button.
-     * @param event
-     */
+	@FXML // fx:id="AddEmployee_Pane" via Screen_Add_Employee
+	private AnchorPane AddEmployee_Pane;
 
-    @FXML
-    void program_quit(ActionEvent event) {
-    	Platform.exit();
-    }
-    /*
-     * currently unused method for interacting with "Employee Management" class
-     * @param even
-     */
-    @FXML
-    void program_toggle_admin(ActionEvent event) {
-    	
-    }
+	@FXML // fx:id="Confirm_Pane" via Screen_Confirm_Add
+	private AnchorPane Confirm_Pane;
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
-    void initialize() {
-        assert Primary_Pane != null : "fx:id=\"Primary_Pane\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Password_Field != null : "fx:id=\"Password_Field\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Username_Field != null : "fx:id=\"Username_Field\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Quit_Button != null : "fx:id=\"Quit_Button\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Log_In_Button != null : "fx:id=\"Log_In_Button\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Label_U != null : "fx:id=\"Label_U\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Label_P != null : "fx:id=\"Label_P\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Lable_PLI != null : "fx:id=\"Lable_PLI\" was not injected: check your FXML file 'Login.fxml'.";
-        assert AsAdmin_Button != null : "fx:id=\"AsAdmin_Button\" was not injected: check your FXML file 'Login.fxml'.";
-        assert Admin_Tab != null : "fx:id=\"Admin_Tab\" was not injected: check your FXML file 'Screen2.fxml'.";
+	@FXML
+	private AnchorPane RemoveEmployee_Pane;
 
-    }
+	@FXML // fx:id="AdminList_Pane" via Screen2
+	private ListView<String> AdminList_Pane; //
+
+	@FXML // fx:id="Password_Field" via Login
+	private PasswordField Password_Field; //
+
+	@FXML // fx:id="Username_Field" via Login
+	private TextField Username_Field; //
+
+	@FXML // fx:id="Quit_Button" Via Multiple
+	private Button Quit_Button; //
+
+	@FXML // fx:id="Log_In_Button" via Login
+	private Button Log_In_Button; //
+
+	@FXML // fx:id="Label_U" Via Login
+	private Label Label_U; //
+
+	@FXML // fx:id="Label_P" Via Login
+	private Label Label_P; //
+
+	@FXML // fx:id="Lable_PLI" Via Login
+	private Label Lable_PLI; //
+
+	@FXML // fx:id="AsAdmin_Button" Via Login
+	private RadioButton AsAdmin_Button; //
+
+	@FXML // fx:id="Register_Button" Via Login
+	private Button Register_Button; //
+
+	@FXML // fx:id="Set_Shift_Button" via Screen2
+	private Button Set_Shift_Button; //
+
+	@FXML // fx:id="AddEmployee_Button" via Screen_Add_Employee
+	private Button AddEmployee_Button; //
+
+	@FXML // fx:id="Cancel_Add_Button" via Screen_Add_Employee
+	private Button Cancel_Add_Button; //
+
+	@FXML // fx:id="Confirm_Add_Button" via Screen_Add_Employee
+	private Button Confirm_Add_Button; //
+
+	@FXML // via Screen2
+	private Button View_Employee_Manifest_Button;
+
+	@FXML // fx:id="RemoveEmployee_Button" via Screen2
+	private Button RemoveEmployee_Button;
+
+	@FXML// via Screen_Add_Employee
+	private Button Confirm_Remove_Button;
+
+	@FXML // via Screen_Confrim_Remove
+	private TextField RemoveFirstName_Field;
+
+	@FXML // via Screen_Confirm_Remove
+	private TextField RemoveLastName_Field;
+
+	@FXML // via Screen_Confirm_Remove
+	private TextField ConfirmRemoveFirstName_Field;
+
+	@FXML // via Screen_Confirm_Remove
+	private TextField ConfirmRemoveLastName_Field;
+
+	/**
+	 * calls the checkAdmin method from the LoginManager class to verify user
+	 * credentials.
+	 *
+	 * @param event
+	 * @throws IOException, IndexOutOfBoundsException
+	 */
+	//private EmployeeManagementGUI emgObj = new EmployeeManagementGUI();
+
+
+	@FXML // from Login.fxml
+	public void program_login(ActionEvent event) throws IOException, IndexOutOfBoundsException {
+
+		if (Username_Field.getText().isEmpty() == true || Password_Field.getText().isEmpty() == true) {
+			Lable_PLI.setText("Missing Credentials");
+		} else {
+
+			if (AsAdmin_Button.isSelected()) {
+				boolean condition = super.manageLogin(Username_Field.getText(), Password_Field.getText());
+				if (condition == true) {
+					super.connectToFile();
+					AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+					Primary_Pane.getChildren().setAll(pane);
+				} else {
+					Lable_PLI.setText("Incorrect Credentials");
+				}
+
+			} else {
+				System.out.println("");
+
+				AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen1.fxml"));
+				Primary_Pane.getChildren().setAll(pane);
+
+			}
+
+		}
+	}
+
+	/**
+	 * calls the register method from the EmployeeManagementGUI class to verify user
+	 *
+	 *
+	 * @param event
+	 *
+	 */
+
+
+	@FXML // from Login.fxml
+	void program_register(ActionEvent event)  {
+		super.register(Username_Field.getText(), Password_Field.getText());
+		Lable_PLI.setText("Registration Successful");
+
+	}
+
+	/**
+	 *	Launches the administrator gui
+	 *	@param event
+	 */
+	// Launches the Add Employee window, with textfield for all information
+	@FXML // from Screen2.fxml
+	void program_add_employee(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen_Add_Employee.fxml"));
+		Secondary_Pane.getChildren().setAll(pane);
+		// Confirmation Pane
+
+	}
+
+	/**
+	 * Adds a new employee to the array of the super class and saves the array to the file. Returns to screen2 afterwards.
+	 * @param ActionEvent
+	 * @throws IOException
+	 */
+	@FXML // from AddEmployee_Pane.fxml
+	void program_confirm_add(ActionEvent event) throws IOException { // this launches from Screen_Add_Employee
+		super.connectToFile();
+		super.addNewEmployee(FirstName_Field.getText(), LastName_Field.getText(),
+				Department_Field.getText(), Shift_Field.getText(), Salary_Field.getText(), Phone_Field.getText());
+		System.out.println(super.getEmployeesArray());
+		super.data.fileName = "employees.txt";
+		super.endSession();
+
+		AnchorPane confPane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+		AddEmployee_Pane.getChildren().setAll(confPane);
+		// Confirmation Pane
+
+	}
+
+
+	/**
+	 * Returns to the admin page from Add Employee, will eventually handle returning from Remove Employee
+	 * page as well
+	 * @param ActionEvent
+	 * @throws IOException
+	 */
+	// cancel button
+	@FXML // from AddEmployee_Pane.fxml
+	void program_return_to_Screen2(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+		AddEmployee_Pane.getChildren().setAll(pane);
+	}
+
+	@FXML
+	void program_return_to_Screen2_via_Remove(ActionEvent event) {
+		super.connectToFile();
+		Employee found = super.searchEmployee(RemoveFirstName_Field.getText(), RemoveLastName_Field.getText());
+		super.removeEmployeesfromArray(found);
+		DataIO IOobj = new DataIO("Employees.txt", super.getEmployeesArray());
+		IOobj.saveEmployees();
+
+	}
+
+	/**
+	 * Unused currently, will handle the shift window functionality
+	 *
+	 * @param ActionEvent
+	 * @throws IOException
+	 */
+
+	@FXML // From
+	void program_open_shift_window(ActionEvent event) {
+
+	}
+	/**
+	 *  scriped action only, shows example manifest
+	 *
+	 * @param ActionEvent
+	 * @throws IOException
+	 */
+
+	@FXML // from Screen2.fxml
+	void program_view_manifest(ActionEvent event) {
+
+		ObservableList<String> stringList = FXCollections.observableArrayList("Count: 3", "Mark Jones IT ", "John Smith Janitor", "Tom");
+		/*
+		 * EmployeeManagement empMang = new EmployeeManagement(); ArrayList<Employee>
+		 * eList = empMang.getEmployeesArray(); ArrayList<String> stringEList = new
+		 * ArrayList<String>(); for(Employee employees : eList){ String empString =
+		 * employees.toStringGUI(); stringEList.add(empString);
+		 *
+		 * } ObservableList<String> oEList =
+		 * FXCollections.observableArrayList(stringEList);
+		 */
+		AdminList_Pane.setItems(stringList);
+
+	}
+	/**
+	 *  swaps to remove class
+	 *
+	 * @param ActionEvent
+	 * @throws IOException
+	 */
+
+	@FXML
+	void program_remove_employee(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen_Confirm_Remove.fxml"));
+		Secondary_Pane.getChildren().setAll(pane);
+
+	}
+
+	/**
+	 * handles the user clicking the "quit" button.
+	 *
+	 * @param event
+	 */
+
+	@FXML
+	void program_quit(ActionEvent event) {
+		Platform.exit();
+	}
+
+	/**
+	 * currently unused method for interacting with "Employee Management" class
+	 *
+	 * @param even
+	 */
+	@FXML
+	void program_toggle_admin(ActionEvent event) {
+
+	}
+	/**
+	 * currently unused method for interacting with "Remove employee" method
+	 *
+	 * @param even
+	 */
+
+	@FXML
+	void program_confirm_remove(ActionEvent event) {
+
+	}
+
+
+
+	@FXML // This method is called by the FXMLLoader when initialization is complete
+	void initialize() {
+		assert AddEmployee_Pane != null : "fx:id=\"AddEmployee_Pane\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Primary_Pane != null : "fx:id=\"Primary_Pane\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Password_Field != null : "fx:id=\"Password_Field\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Username_Field != null : "fx:id=\"Username_Field\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Quit_Button != null : "fx:id=\"Quit_Button\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Log_In_Button != null : "fx:id=\"Log_In_Button\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Label_U != null : "fx:id=\"Label_U\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Label_P != null : "fx:id=\"Label_P\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Lable_PLI != null : "fx:id=\"Lable_PLI\" was not injected: check your FXML file 'Login.fxml'.";
+		assert AsAdmin_Button != null : "fx:id=\"AsAdmin_Button\" was not injected: check your FXML file 'Login.fxml'.";
+		assert Admin_Tab != null : "fx:id=\"Admin_Tab\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert Set_Shift_Button != null : "fx:id=\"Set_Shift_Button\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert AddEmployee_Button != null : "fx:id=\"AddEmployee_Button\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert Register_Button != null : "fx:id=\"Register_Button\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert FirstName_Field != null : "fx:id=\"FirstName_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert LastName_Field != null : "fx:id=\"LastName_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Department_Field != null : "fx:id=\"Department_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Shift_Field != null : "fx:id=\"Shift_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Salary_Field != null : "fx:id=\"Salary_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Phone_Field != null : "fx:id=\"Phone_Field\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Cancel_Add_Button != null : "fx:id=\"Cancel_Add_Button\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Confirm_Add_Button != null : "fx:id=\"Confirm_Add_Button\" was not injected: check your FXML file 'Screen_Add_Employee.fxml'.";
+		assert Secondary_Pane != null : "fx:id=\"Secondary_Pane\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert Confirm_Pane != null : "fx:id=\"Confirm_Pane\" was not injected: check your FXML file 'Screen_Confirm_Add.fxml'.";
+		assert View_Employee_Manifest_Button != null : "fx:id=\"View_Employee_Manifest_Button\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert RemoveEmployee_Button != null : "fx:id=\"RemoveEmployee_Button\" was not injected: check your FXML file 'Screen2.fxml'.";
+		assert Confirm_Remove_Button != null : "fx:id=\"Confirm_Remove_Button\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+		assert RemoveFirstName_Field != null : "fx:id=\"RemoveFirstName_Field\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+		assert RemoveLastName_Field != null : "fx:id=\"RemoveLastName_Field\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+		assert ConfirmRemoveFirstName_Field != null : "fx:id=\"ConfirmRemoveFirstName_Field\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+		assert ConfirmRemoveLastName_Field != null : "fx:id=\"ConfirmRemoveLastName_Field\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+		assert RemoveEmployee_Pane != null : "fx:id=\"RemoveEmployee_Pane\" was not injected: check your FXML file 'Screen_Confirm_Remove.fxml'.";
+
+	}
 }
