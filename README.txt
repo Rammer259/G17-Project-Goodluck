@@ -54,6 +54,19 @@ Screen1.fxml
 
 Screen2.fxml
 
+Testing: There are JUnit tests which are automated tests to determine if the methods will function correctly. Classes include: 
+
+EmployeeTest.java
+
+EmployeeManagementTest.java
+
+LoginManagerTest.java
+
+SchuduleTest.java
+
+Operating the tests: To compile, download JUnit and place the 2 jar files into the same folder as the program itself. From the command
+prompt, typing in javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar *.java on Windows will compile everything in the folder. Next typing in 
+java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore <TestClass>, will run the test for that specific .java file.
 
 NOTES:
 
