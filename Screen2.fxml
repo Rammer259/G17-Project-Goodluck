@@ -5,47 +5,13 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane fx:id="Secondary_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <TabPane prefHeight="300.0" prefWidth="300.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Basic Functions">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <SplitPane dividerPositions="0.6394052044609665" orientation="VERTICAL" prefHeight="269.0" prefWidth="300.0" scaleShape="false" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <items>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                 <children>
-                                    <TextArea layoutX="7.0" layoutY="-47.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="298.0">
-                                 <children>
-                                    <ToolBar layoutX="7.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <items>
-                                          <Button mnemonicParsing="false" text="View Monthly Schedule" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="TOF Request" />
-                                       </items>
-                                    </ToolBar>
-                                    <ToolBar layoutX="6.0" layoutY="47.0" prefHeight="53.0" prefWidth="200.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                       <items>
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Leave Memo" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="View My Data" />
-                                          <Button mnemonicParsing="false" onAction="#program_quit" text="Quit Program" />
-                                       </items>
-                                    </ToolBar>
-                                 </children>
-                              </AnchorPane>
-                           </items>
-                        </SplitPane>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
           <Tab fx:id="Admin_Tab" text="Administrator Functions">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -61,14 +27,14 @@
                                  <children>
                                     <ToolBar layoutX="7.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <items>
-                                        <Button mnemonicParsing="false" text="View Employee Manifest" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="Add Employee" />
+                                        <Button fx:id="View_Employee_Manifest_Button" mnemonicParsing="false" onAction="#program_view_manifest" text="View Employee Manifest" />
+                                          <Button fx:id="AddEmployee_Button" mnemonicParsing="false" onAction="#program_add_employee" prefHeight="25.0" prefWidth="134.0" text="Add Employee" />
                                       </items>
                                     </ToolBar>
                                     <ToolBar layoutX="6.0" layoutY="47.0" prefHeight="47.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                       <items>
-                                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Remove Employee" />
-                                          <Button mnemonicParsing="false" text="Set Hours" />
+                                        <Button fx:id="RemoveEmployee_Button" mnemonicParsing="false" onAction="#program_remove_employee" prefHeight="25.0" prefWidth="118.0" text="Remove Employee" />
+                                          <Button fx:id="Set_Shift_Button" mnemonicParsing="false" onAction="#program_open_shift_window" text="Set Shift" />
                                           <Button mnemonicParsing="false" onAction="#program_quit" text="Quit Program" />
                                       </items>
                                     </ToolBar>

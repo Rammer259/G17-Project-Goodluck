@@ -20,7 +20,7 @@ public class Main extends Application{
 	 */
 	public void start(Stage stage)throws Exception{
 		Parent root = (Parent) FXMLLoader.load(getClass().getResource("/Login.fxml"));
-		
+
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setTitle("Employee Management System");
@@ -30,7 +30,7 @@ public class Main extends Application{
 	/*
 	 * Launches the GUI.
 	 */
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
