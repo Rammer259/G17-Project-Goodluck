@@ -219,35 +219,6 @@ public class EmployeeManagementTest{
 		assertEquals("Testing search function.", em, actual.get(1).toString());
 	}
 	
-		@Test
-	public void test_runSearchNotFound() {
-		EmployeeManagement e = new EmployeeManagement();
-		Employee e1 = new Employee("Bob", "Smith", "FrontDesk", "m", "12345", "123456789");
-		Employee e2 = new Employee("John", "Cena", "HR", "e", "23456", "987654321");
-		Employee e3 = new Employee("Alan", "Turning", "IT", "o", "18427", "123987653");
-		
-		e.addEmployeestoArray(e1);
-		e.addEmployeestoArray(e2);
-		e.addEmployeestoArray(e3);
-		
-		ArrayList<Employee> actual = e.getEmployeesArray();
-		
-		ArrayList<String> expected = new ArrayList<String>();
-		
-		String emInfo1 = ("Bob" + "\t " + "Smith" + "\t " + "FrontDesk" + "\t " + "m" + "\t " + "12345" + "\t " + "123456789");
-		String emInfo2 = ("John" + "\t " + "Cena" + "\t " + "HR" + "\t " + "e" + "\t " + "23456" + "\t " + "987654321");
-		String emInfo3 = ("Alan" + "\t " + "Turning" + "\t " + "IT" + "\t " + "o" + "\t " + "18427" + "\t " + "123987653");
-		
-		expected.add(emInfo1);
-		expected.add(emInfo2);
-		expected.add(emInfo3);
-		
-		Employee Em = e.searchEmployee("John","Cena");
-		String em = Em.toString();
-
-		assertEquals("Testing search function.", em, actual.get(1).toString());
-	}
-	
 	@Test
 	public void test_runAvailEvening() {
 		EmployeeManagement e = new EmployeeManagement();
