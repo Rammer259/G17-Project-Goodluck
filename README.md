@@ -1,11 +1,12 @@
 CPSC219-G17-Goodluck
 
 VIEW FULLSCREEN
+
 Configuring/Installing:
 
 To configure/install the program simply download and compile all .java files (you do not need to compile the .fxml files, they are ready immediately after download) not
 from the repository in a single folder which has no other files within it. Make sure you have cleared all previous versions of the program from that file directory 
-before use. You must have the Java JDK installed on your PC to use this program
+before use. You must have the Java JDK installed on your PC to use this program.
 
 Operating the Program: To use the program in its current state you must launch it from the command prompt console using the "java" command. Use "java" to launch the 
 program from the file "EmployeeManagement" (do not include " symbols in the command or filename).
@@ -44,6 +45,8 @@ Main.java
 Schedule.java
 
 Screen_Add_Employee.fxml
+
+Screen_Remove_Employee.fxml
 
 Screen_Confirm_Add.fxml
 
