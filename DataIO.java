@@ -108,7 +108,7 @@ public class DataIO {
 	public void saveEmployees() {
 
 		try {
-			FileWriter fileWriter = new FileWriter(fileName, true);
+			FileWriter fileWriter = new FileWriter(fileName);
 
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 

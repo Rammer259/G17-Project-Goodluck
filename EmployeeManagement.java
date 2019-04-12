@@ -203,7 +203,7 @@ public class EmployeeManagement {
 		System.out.println("'COUNT'		-> to display number of employees under your administration.");
 		System.out.println("'VIEW'		-> to display ALL employees info under your administration.");
 		System.out.println("'ADD'		-> to add an employee under your administration.");
-		System.out.println("'SEARCH'	-> to add an employee under your administration.");
+		System.out.println("'SEARCH'	-> to search an employee under your administration.");
 		System.out.println("'REMOVE'	-> to Remove an employee from your administration.");
 		System.out.println("'AVAIL'		-> to check if an employee is currently working");
 		System.out.println("'QUIT'		-> EXIT");
@@ -254,7 +254,9 @@ public class EmployeeManagement {
 				if (parts.length == 2) {
 					found = searchEmployee(parts[0], parts[1]);
 					employees.remove(found);
-					System.out.println(parts[0] + " " + parts[1] + " has been removed.");
+					if (found != null){
+						System.out.println(parts[0]+" "+parts[1]+" has been removed.");
+					}
 				}
 			}
 
