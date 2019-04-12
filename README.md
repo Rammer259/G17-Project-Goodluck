@@ -1,8 +1,9 @@
 CPSC219-G17-Goodluck
+
 VIEW FULLSCREEN
 Configuring/Installing:
 
-to configure/install the program simply download and compile all .java files (you do not need to compile the .fxml files, they are ready immediately after download) not
+To configure/install the program simply download and compile all .java files (you do not need to compile the .fxml files, they are ready immediately after download) not
 from the repository in a single folder which has no other files within it. Make sure you have cleared all previous versions of the program from that file directory 
 before use. You must have the Java JDK installed on your PC to use this program
 
@@ -19,10 +20,8 @@ scheduled to be working on site.
 
 To exit the system return to the main menu and enter "QUIT" to end your session.
 
-The Gui is currently only partially functional pending a massive program overhaul. It currently only functions for some administrator tools. Employee Tools are 
-scheduled to be removed in the next published version. On the admin fuctions page all buttons have associated functions excluding set-shift which is still pending.
-"View Employee Manfiest" will print a scripted version of manifest and count functions to the screen. "Add Employee" will allow the user to add an employee, "Remove
-Employee" will open the currently non-functional remove function, and will dead-end the program. "Quit" or "Exit" on any page will immediately end the program.
+The GUI can be run using java Main. It currently only functions for the administrator tools. On the admins functions page, all buttons have associated functions excluding set shift which is not fully implemented.
+"View Employee Manfiest" will print a manifest which will display all the employees under the adminstration. "Add Employee" will allow the user to add an employee. "Remove Employee" will open the remove function and allow the admin to remove an existing employee. "Quit" or "Exit" on any page will immediately end the program.
 
 File Manifest: Upon installation, assuming you have registered no new accounts you should have the following files
 
