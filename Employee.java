@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
  * This class defines an object called Employee that
  * holds the information of employees in the program
  *
- * @author mimel
  */
 public class Employee{
 
@@ -43,7 +42,7 @@ public class Employee{
 		contact = cont;
 	}
 
-	/*
+	/**
 	 * A toString function that turns the parameters
 	 * to string. \t is used to space out the information
 	 * but keep all variables in one line.
@@ -72,6 +71,11 @@ public class Employee{
 		Employee e = new Employee(first,last,dept,sh,sal,cont);
 		return e;
 	}
+	
+	/**
+	 * get methods
+	 * 
+	 */
 
 	public String getFirstName(){
 		return firstName.trim();

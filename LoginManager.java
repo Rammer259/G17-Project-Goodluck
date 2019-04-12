@@ -1,41 +1,50 @@
 import java.io.*;
 import java.util.ArrayList;
+
 /**
- * @author mimel
+ * This class is for registering and verifying login credentials.
  *
  */
-public class LoginManager{
+public class LoginManager {
 
 	private String fileName = "admins.txt";
 	private ArrayList<String> admins = new ArrayList<String>();
+	
+	/**
+	 * register as a new admin
+	 * 
+	 * @param user
+	 * @param pass
+	 */
 
-	public void addAdmin(String user, String pass){
+	public void addAdmin(String user, String pass) {
 
-		try{
+		try {
 			String adminInfo = (user + "\t" + pass);
 			this.admins.add(adminInfo);
 			File file = new File(fileName);
 			FileWriter fr = new FileWriter(file, true);
 			BufferedWriter br = new BufferedWriter(fr);
-			br.write( "\n" + adminInfo);
-			//br.write( "\n" + user + "\t" + pass + "");
+			br.write("\n" + adminInfo);
+			// br.write( "\n" + user + "\t" + pass + "");
 			br.close();
 			fr.close();
-		}catch(IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public ArrayList<String> getAdmins(){
+	public ArrayList<String> getAdmins() {
 		return admins;
 	}
 
 	/**
+	 * Verify admin credentials
 	 * @param user
 	 * @param pass
 	 * @return
 	 */
-	boolean checkAdmin(String user, String pass){
+	boolean checkAdmin(String user, String pass) {
 		user = user.trim();
 		pass = pass.trim();
 		// The name of the file to open.
@@ -45,16 +54,14 @@ public class LoginManager{
 
 		try {
 			// FileReader reads text files in the default encoding.
-			FileReader fileReader =
-					new FileReader(fileName);
+			FileReader fileReader = new FileReader(fileName);
 
 			// Always wrap FileReader in BufferedReader.
-			BufferedReader bufferedReader =
-					new BufferedReader(fileReader);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String[] parts;
-			while((line = bufferedReader.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) {
 				parts = line.split("\t");
-				if ( (user.equals( parts[0].trim()) ) && (pass.equals(parts[1].trim())) ){
+				if ((user.equals(parts[0].trim())) && (pass.equals(parts[1].trim()))) {
 					System.out.println("LOGGED IN " + user + " SUCCESSFULY! ");
 					return true;
 				}
@@ -62,16 +69,10 @@ public class LoginManager{
 
 			// Always close files.
 			bufferedReader.close();
-		}
-		catch(FileNotFoundException ex) {
-			System.out.println(
-					"Unable to open file '" +
-							fileName + "'");
-		}
-		catch(IOException ex) {
-			System.out.println(
-					"Error reading file '"
-							+ fileName + "'");
+		} catch (FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+		} catch (IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
 		}
 
 		return false;

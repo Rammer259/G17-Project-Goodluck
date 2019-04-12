@@ -1,3 +1,2 @@
 
-sofian	mustafa
-Ak	123
+user	pass

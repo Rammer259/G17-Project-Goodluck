@@ -20,12 +20,11 @@ import javafx.scene.layout.AnchorPane;
 import java.util.*;
 import java.io.*;
 
-
-/*
+/**
  * this class controllers and handles all the displayed gui's and acts as the controlling class for every fxml file.
  */
-public class Controller extends EmployeeManagementGUI{
-	/*
+public class Controller extends EmployeeManagementGUI {
+	/**
 	 * these are all the objects from the fxml file that we may need to interact
 	 * with or update, as of current many are unused.
 	 */
@@ -68,6 +67,9 @@ public class Controller extends EmployeeManagementGUI{
 
 	@FXML // fx:id="Confirm_Pane" via Screen_Confirm_Add
 	private AnchorPane Confirm_Pane;
+
+	@FXML // fx:id="Confirm_Pane" via Screen_Confirm_Add
+	private AnchorPane Confirm_Two_Pane;
 
 	@FXML
 	private AnchorPane RemoveEmployee_Pane;
@@ -117,7 +119,7 @@ public class Controller extends EmployeeManagementGUI{
 	@FXML // fx:id="RemoveEmployee_Button" via Screen2
 	private Button RemoveEmployee_Button;
 
-	@FXML// via Screen_Add_Employee
+	@FXML // via Screen_Add_Employee
 	private Button Confirm_Remove_Button;
 
 	@FXML // via Screen_Confrim_Remove
@@ -139,8 +141,7 @@ public class Controller extends EmployeeManagementGUI{
 	 * @param event
 	 * @throws IOException, IndexOutOfBoundsException
 	 */
-	//private EmployeeManagementGUI emgObj = new EmployeeManagementGUI();
-
+	// private EmployeeManagementGUI emgObj = new EmployeeManagementGUI();
 
 	@FXML // from Login.fxml
 	public void program_login(ActionEvent event) throws IOException, IndexOutOfBoundsException {
@@ -149,16 +150,14 @@ public class Controller extends EmployeeManagementGUI{
 			Lable_PLI.setText("Missing Credentials");
 		} else {
 
-				boolean condition = super.manageLogin(Username_Field.getText(), Password_Field.getText());
-				if (condition == true) {
-					super.connectToFile();
-					AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
-					Primary_Pane.getChildren().setAll(pane);
-				} else {
-					Lable_PLI.setText("Incorrect Credentials");
-				}
-
-
+			boolean condition = super.manageLogin(Username_Field.getText(), Password_Field.getText());
+			if (condition == true) {
+				super.connectToFile();
+				AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+				Primary_Pane.getChildren().setAll(pane);
+			} else {
+				Lable_PLI.setText("Incorrect Credentials");
+			}
 
 		}
 	}
@@ -171,17 +170,17 @@ public class Controller extends EmployeeManagementGUI{
 	 *
 	 */
 
-
 	@FXML // from Login.fxml
-	void program_register(ActionEvent event)  {
+	void program_register(ActionEvent event) {
 		super.register(Username_Field.getText(), Password_Field.getText());
 		Lable_PLI.setText("Registration Successful");
 
 	}
 
 	/**
-	 *	Launches the administrator gui
-	 *	@param event
+	 * Launches the administrator gui
+	 * 
+	 * @param event
 	 */
 	// Launches the Add Employee window, with textfield for all information
 	@FXML // from Screen2.fxml
@@ -193,30 +192,34 @@ public class Controller extends EmployeeManagementGUI{
 	}
 
 	/**
-	 * Adds a new employee to the array of the super class and saves the array to the file. Returns to screen2 afterwards.
+	 * Adds a new employee to the array of the super class and saves the array to
+	 * the file. Returns to screen2 afterwards.
+	 * 
 	 * @param ActionEvent
 	 * @throws IOException
 	 */
 	@FXML // from AddEmployee_Pane.fxml
-	void program_confirm_add(ActionEvent event) throws IOException { // this launches from Screen_Add_Employee
+	void program_confirm_add(ActionEvent event) throws IOException, InterruptedException { // this launches from
+		// Screen_Add_Employee
 		super.connectToFile();
-		super.addNewEmployee(FirstName_Field.getText(), LastName_Field.getText(),
-				Department_Field.getText(), Shift_Field.getText(), Salary_Field.getText(), Phone_Field.getText());
+		super.addNewEmployee(FirstName_Field.getText().toLowerCase(), LastName_Field.getText().toLowerCase(), Department_Field.getText(),
+				Shift_Field.getText(), Salary_Field.getText(), Phone_Field.getText());
 		System.out.println(super.getEmployeesArray());
 		// privacy leak
 		super.data.fileName = "employees.txt";
 		super.endSession();
 
-		AnchorPane confPane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
-		AddEmployee_Pane.getChildren().setAll(confPane);
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen_Confirm_Add.fxml"));
+		AddEmployee_Pane.getChildren().setAll(pane);
+
 		// Confirmation Pane
 
 	}
 
-
 	/**
-	 * Returns to the admin page from Add Employee, will eventually handle returning from Remove Employee
-	 * page as well
+	 * Returns to the admin page from Add Employee, will eventually handle returning
+	 * from Remove Employee page as well
+	 * 
 	 * @param ActionEvent
 	 * @throws IOException
 	 */
@@ -228,11 +231,9 @@ public class Controller extends EmployeeManagementGUI{
 	}
 
 	@FXML
-	void program_return_to_Screen2_via_Remove(ActionEvent event) throws IOException{
+	void program_return_to_Screen2_via_Remove(ActionEvent event) throws IOException {
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
 		RemoveEmployee_Pane.getChildren().setAll(pane);
-
-
 
 	}
 
@@ -247,33 +248,35 @@ public class Controller extends EmployeeManagementGUI{
 	void program_open_shift_window(ActionEvent event) {
 
 	}
+
 	/**
-	 *  scriped action only, shows example manifest
+	 * scripted action only, shows example manifest
 	 *
 	 * @param ActionEvent
 	 * @throws IOException
 	 */
 
 	@FXML // from Screen2.fxml
-	void program_view_manifest(ActionEvent event) {
+	void program_view_manifest(ActionEvent event) throws IOException {
+		EmployeeManagementGUI empObj = new EmployeeManagementGUI();
+		// ObservableList<String> stringList = FXCollections.observableArrayList("Count:
+		// 3", "Mark Jones IT ", "John Smith Janitor", "Tom");
+		//
+		// EmployeeManagement empMang = new EmployeeManagement();
+		// ArrayList<Employee> eList = empMang.getEmployeesArray();
+		// if(eList.size() == 0){System.out.println("empty");}
+		// ArrayList<String> stringEList = new ArrayList<String>();
+		// for(Employee employees : eList){
+		// String empString = employees.toString();
+		// stringEList.add(empString);
+		// }
 
-		ObservableList<String> stringList = FXCollections.observableArrayList("Count: 3", "Mark Jones IT ", "John Smith Janitor", "Tom");
-
-		EmployeeManagement empMang = new EmployeeManagement();
-			ArrayList<Employee> eList = empMang.getEmployeesArray();
-			if(eList.size() == 0){System.out.println("empty");}
-		 	ArrayList<String> stringEList = new ArrayList<String>();
-			for(Employee employees : eList){
-			String empString = employees.toString();
-			stringEList.add(empString);
-		  }
-			ObservableList<String> oEList = FXCollections.observableArrayList(stringEList);
-
-		AdminList_Pane.setItems(stringList);
+		AdminList_Pane.setItems(empObj.view_the_manifest_GUI());
 
 	}
+
 	/**
-	 *  swaps to remove class
+	 * swaps to remove class
 	 *
 	 * @param ActionEvent
 	 * @throws IOException
@@ -306,6 +309,7 @@ public class Controller extends EmployeeManagementGUI{
 	void program_toggle_admin(ActionEvent event) {
 
 	}
+
 	/**
 	 * interacts with a new remove method, called from EmployeeManagementGUI
 	 *
@@ -313,18 +317,28 @@ public class Controller extends EmployeeManagementGUI{
 	 */
 
 	@FXML
-	void program_confirm_remove(ActionEvent event)throws IOException, FileNotFoundException {
-		EmployeeManagementGUI empObj =  new EmployeeManagementGUI();
-		empObj.removal_GUI(RemoveFirstName_Field.getText(), RemoveLastName_Field.getText());
-		//super.connectToFile();
-		//Employee found = super.searchEmployee(RemoveFirstName_Field.getText(), RemoveLastName_Field.getText());
-		//super.removeEmployeesfromArray(found);
-		//DataIO IOobj = new DataIO("Employees.txt", super.getEmployeesArray());
-		//IOobj.saveEmployees();
+	void program_confirm_remove(ActionEvent event) throws IOException, FileNotFoundException {
+		EmployeeManagementGUI empObj = new EmployeeManagementGUI();
+		empObj.removal_GUI(RemoveFirstName_Field.getText().toLowerCase(), RemoveLastName_Field.getText().toLowerCase());
+
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen_Confirm_Remove.fxml"));
+		RemoveEmployee_Pane.getChildren().setAll(pane);
 
 	}
 
+	@FXML
+	void program_return_to_Screen2_via_pop_up(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+		Confirm_Pane.getChildren().setAll(pane);
 
+	}
+
+	@FXML
+	void program_return_to_Screen2_via_pop_up_remove(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen2.fxml"));
+		Confirm_Two_Pane.getChildren().setAll(pane);
+
+	}
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
