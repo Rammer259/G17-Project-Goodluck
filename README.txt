@@ -42,7 +42,7 @@ LoginManager.java
 
 Main.java
 
-Schudule.java (yes we are aware of the mis-spelling)
+Schedule.java
 
 Screen_Add_Employee.fxml
 
@@ -62,12 +62,10 @@ EmployeeManagementTest.java
 
 LoginManagerTest.java
 
-SchuduleTest.java
+ScheduleTest.java
+
+DataIOTest.java
 
 Operating the tests: To compile, download JUnit and place the 2 jar files into the same folder as the program itself. From the command
 prompt, typing in javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar *.java on Windows will compile everything in the folder. Next typing in 
 java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore <TestClass>, will run the test for that specific .java file.
-
-NOTES:
-
-You can find this demo in the branch "Version 3" on the project goodluck github.
