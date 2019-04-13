@@ -2,137 +2,135 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * This class handles the administrator's personal .txt
- * file, which contains the employee information.
+ * This class handles the administrator's personal .txt file, which contains the
+ * employee information.
  *
- * @author mimel
  *
  */
-public class DataIO{
+public class DataIO {
 
-    private ArrayList employees;
-    public String fileName;
-    public FileReader fileReader;
-    public BufferedReader bufferedReader;
-    FileWriter fileWriter;
-    BufferedWriter bufferedWriter;
+	private ArrayList employees;
+	public String fileName;
+	public FileReader fileReader;
+	public BufferedReader bufferedReader;
+	FileWriter fileWriter;
+	BufferedWriter bufferedWriter;
 
-    /**
-     * A constructor that assigns the variables fileName
-     * and employees
-     *
-     * @param file
-     * @param list
-     */
-    public DataIO(String file, ArrayList list){
-    	fileName = file;
-    	employees = list;
-    }
+	private static final int FIRST = 0;
+	private static final int LAST = 1;
+	private static final int DEPARTMENT = 2;
+	private static final int SHIFT = 3;
+	private static final int SALARY = 4;
+	private static final int CONTACT = 5;
 
-    /**
-     * A from string function that takes a String line
-	 * and splits it into parts at the tab spaces. Each
-	 * variable is assigned to a part of the employee variables.
+	/**
+	 * A constructor that assigns the variables fileName and employees
 	 *
-     * @param input
-     * @return e
-     */
-    public static Employee fromString(String input ){
-    	String[] parts= input.split("\t");
-    	String first = parts[0];
-    	String last = parts[1];
-    	String dept = parts[2];
-    	String sh = parts[3];
-    	String sal = parts[4];
-    	String cont = parts[5];
+	 * @param file
+	 * @param list
+	 */
+	public DataIO(String file, ArrayList list) {
+		fileName = file;
+		employees = list;
+	}
 
-    	Employee e = new Employee(first,last,dept,sh,sal,cont);
-    	return e;
+	/**
+	 * A from string function that takes a String line and splits it into parts at
+	 * the tab spaces. Each variable is assigned to a part of the employee
+	 * variables.
+	 *
+	 * @param input
+	 * @return e
+	 */
+	public static Employee fromString(String input) {
+		String[] parts = input.split("\t");
+		String first = parts[FIRST];
+		String last = parts[LAST];
+		String dept = parts[DEPARTMENT];
+		String sh = parts[SHIFT];
+		String sal = parts[SALARY];
+		String cont = parts[CONTACT];
 
-    }
+		Employee e = new Employee(first, last, dept, sh, sal, cont);
+		return e;
 
-    /**
-     * Function used to import the employee's information from
-     * the specified admin's .txt file. FileReader finds the
-     * admin's .txt and bufferedReader reads the text inside it.
-     * the for loop is used to read each employee line by line.
-     */
-    public void populateEmployees(){
-                System.out.println("WERE READING FROM: " + fileName);
+	}
 
-                String line = null;
-                 try {
+	/**
+	 * Function used to import the employee's information from the specified admin's
+	 * .txt file. FileReader finds the admin's .txt and bufferedReader reads the
+	 * text inside it. the for loop is used to read each employee line by line.
+	 */
+	public void populateEmployees() {
+		System.out.println("READING FROM: " + fileName);
 
-                    FileReader fileReader = new FileReader(fileName);
+		String line = null;
+		try {
 
-                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+			FileReader fileReader = new FileReader(fileName);
 
-                    while((line = bufferedReader.readLine()) != null) {
-                    	fromString(line);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                        if (employees == null){
-                            System.out.println("EMPLOYEEES ARE NULL D:");
-                        }
+			while ((line = bufferedReader.readLine()) != null) {
+				fromString(line);
 
-                        employees.add(fromString(line));
-                    }
+				if (employees == null) {
+					System.out.println("EMPLOYEEES ARE NULL");
+				}
 
-                    Employee e;
-                    for(int i = 0 ; i < employees.size() ; i++ ){
-                    e = (Employee) employees.get(i);
-                    System.out.println(e.toString());
-                }
+				employees.add(fromString(line));
+			}
 
-                    bufferedReader.close();
-                }
-                catch(FileNotFoundException ex) {
-                    System.out.println(  "Unable to open file '" + fileName + "'");
-                }
+			Employee e;
+			for (int i = 0; i < employees.size(); i++) {
+				e = (Employee) employees.get(i);
+				System.out.println(e.toString());
+			}
 
-                catch(IOException ex) {
-                    System.out.println( "Error reading file '"  + fileName + "'");
-                    ex.printStackTrace();
-             }
-                catch(NullPointerException npe){
-                    System.out.println("oops.");
-                }
-    }
+			bufferedReader.close();
+		} catch (FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+		}
 
-        /**
-         * A void function that saves the employee's information to
-         * the specified admin's .txt file. filewriter and
-         * bufferedWriter are used to write to the text file
-         *  while a for loop is used to write each employee
-         *  line by line.
-         */
-        public void saveEmployees(){
+		catch (IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
+			ex.printStackTrace();
+		} catch (NullPointerException npe) {
+			System.out.println("oops.");
+		}
+	}
 
-            try {
-                FileWriter fileWriter = new FileWriter(fileName);
+	/**
+	 * A void function that saves the employee's information to the specified
+	 * admin's .txt file. filewriter and bufferedWriter are used to write to the
+	 * text file while a for loop is used to write each employee line by line.
+	 */
+	public void saveEmployees() {
 
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+		try {
+			FileWriter fileWriter = new FileWriter(fileName, true);
 
-                //write out each employee line by line
-                for(int i =0; i < employees.size() ; i++ ){
-                bufferedWriter.write(employees.get(i).toString());
-                bufferedWriter.newLine();
-                }
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-                // Always close files.
-                bufferedWriter.close();
-            }
+			// write out each employee line by line
+			for (int i = 0; i < employees.size(); i++) {
+				bufferedWriter.write(employees.get(i).toString());
+				bufferedWriter.newLine();
+			}
 
-            catch(IOException ex) {
-                System.out.println(
-                    "Error writing to file '"
-                    + fileName + "'");
-            }
+			// Always close files.
+			bufferedWriter.close();
+		}
 
-        }
+		catch (IOException ex) {
+			System.out.println("Error writing to file '" + fileName + "'");
+		}
 
-    	public static void main(String[] args) {
-    		ArrayList<Employee> myList = new ArrayList<Employee>();
-    	}
+	}
+
+	public static void main(String[] args) {
+		ArrayList<Employee> myList = new ArrayList<Employee>();
+	}
 }
 
 //https://www.caveofprogramming.com/java/java-file-reading-and-writing-files-in-java.html

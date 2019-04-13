@@ -43,7 +43,18 @@ public class LoginManagerTest{
 	}
 	
 	@Test
-	public void test_checkAdmin(){
+	public void test_getAdminsNone(){
+		
+		LoginManager lm = new LoginManager();
+		
+		ArrayList<String> expected = new ArrayList<String>();
+		
+		assertEquals("No existing admins.", 0, lm.getAdmins().size());
+		
+	}
+	
+	@Test
+	public void test_checkAdminTrue(){
 		
 		LoginManager lm = new LoginManager();
 		

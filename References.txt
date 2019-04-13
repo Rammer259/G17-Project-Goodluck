@@ -1,0 +1,28 @@
+References:
+
+https://stackoverflow.com/questions/1277880/how-can-i-get-the-count-of-line-in-a-file-in-an-efficient-way 
+https://www.youtube.com/watch?v=k3K9KHPYZFc
+https://stackoverflow.com/questions/5600422/method-to-find-string-inside-of-the-text-file-then-getting-the-following-lines
+https://www.youtube.com/watch?v=3RNYUKxAgmw
+
+https://www.youtube.com/watch?v=uxyGJMBs2dI
+https://stackoverflow.com/questions/14169661/read-complete-file-without-using-loop-in-java
+https://stackoverflow.com/questions/1158777/rename-a-file-using-java
+https://stackoverflow.com/questions/3935791/find-and-replace-words-lines-in-a-file 
+
+
+https://docs.oracle.com/javase/7/docs/api/java/io/InputStreamReader.html
+https://www.journaldev.com/791/java-string-split
+https://javarevisited.blogspot.com/2012/12/how-to-read-input-from-command-line-in-java.html#ixzz5i6pxVwQT
+https://javarevisited.blogspot.com/2012/12/how-to-read-input-from-command-line-in-java.html
+https://www.caveofprogramming.com/java/java-file-reading-and-writing-files-in-java.html
+https://www.journaldev.com/881/java-append-to-file#java-append-content-to-existing-file-using-bufferedwriter
+https://www.geeksforgeeks.org/java-string-trim-method-example/
+https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html
+https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html
+https://stackoverflow.com/questions/2309558/time-comparison
+https://www.quora.com/How-can-I-delete-a-line-from-a-file-using-Java
+
+***One of our team-mates had a friend help out. Amine was very helpful in helping us, espically 
+setting up printing with arraylists, and the overall design since this was a very ambitious project.   
+© 2019 GitHub, Inc.
