@@ -60,10 +60,6 @@ Screen2.fxml
 
 Testing: There are JUnit tests which are automated tests to determine if the methods will function correctly. Classes include: 
 
-hamcrest-core-1.3.jar
-
-junit-4.12.jar
-
 EmployeeTest.java
 
 EmployeeManagementTest.java

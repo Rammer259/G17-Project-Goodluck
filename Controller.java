@@ -97,6 +97,9 @@ public class Controller extends EmployeeManagementGUI {
 
 	@FXML // fx:id="Lable_PLI" Via Login
 	private Label Lable_PLI; //
+	
+	@FXML // fx:id="removeLabel" Via Screen_Confirm_Remove
+	private Label removeLabel; //
 
 	@FXML // fx:id="Register_Button" Via Login
 	private Button Register_Button; //
@@ -259,18 +262,6 @@ public class Controller extends EmployeeManagementGUI {
 	@FXML // from Screen2.fxml
 	void program_view_manifest(ActionEvent event) throws IOException {
 		EmployeeManagementGUI empObj = new EmployeeManagementGUI();
-		// ObservableList<String> stringList = FXCollections.observableArrayList("Count:
-		// 3", "Mark Jones IT ", "John Smith Janitor", "Tom");
-		//
-		// EmployeeManagement empMang = new EmployeeManagement();
-		// ArrayList<Employee> eList = empMang.getEmployeesArray();
-		// if(eList.size() == 0){System.out.println("empty");}
-		// ArrayList<String> stringEList = new ArrayList<String>();
-		// for(Employee employees : eList){
-		// String empString = employees.toString();
-		// stringEList.add(empString);
-		// }
-
 		AdminList_Pane.setItems(empObj.view_the_manifest_GUI());
 
 	}
@@ -304,15 +295,20 @@ public class Controller extends EmployeeManagementGUI {
 	 * interacts with a new remove method, called from EmployeeManagementGUI
 	 *
 	 * @param event
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 */
 
 	@FXML
 	void program_confirm_remove(ActionEvent event) throws IOException, FileNotFoundException {
 		EmployeeManagementGUI empObj = new EmployeeManagementGUI();
-		empObj.removal_GUI(RemoveFirstName_Field.getText().toLowerCase(), RemoveLastName_Field.getText().toLowerCase());
-
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("/Screen_Confirm_Remove.fxml"));
-		RemoveEmployee_Pane.getChildren().setAll(pane);
+		if(empObj.removal_GUI(RemoveFirstName_Field.getText().toLowerCase(), RemoveLastName_Field.getText().toLowerCase())) {
+			empObj.removal_GUI(RemoveFirstName_Field.getText().toLowerCase(), RemoveLastName_Field.getText().toLowerCase());
+			RemoveEmployee_Pane.getChildren().setAll(pane);
+		} else {
+			removeLabel.setText("Employee could not be found!");
+		}
 
 	}
 	/**

@@ -209,7 +209,7 @@ public class EmployeeManagementGUI {
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public void removal_GUI(String firstName, String lastName) throws IOException, FileNotFoundException {
+	public boolean removal_GUI(String firstName, String lastName) throws IOException, FileNotFoundException {
 		File inputFile = new File("employees.txt");
 		File tempFile = new File("Updated Employees.txt");
 		// used to rename new file
@@ -221,11 +221,15 @@ public class EmployeeManagementGUI {
 		String first = firstName;
 		String last = lastName;
 		String currentLine;
+		boolean condition = false;
 
 		while ((currentLine = reader.readLine()) != null) {
 			String trimmed = currentLine.trim();
-			if (trimmed.contains(first) && trimmed.contains(last))
+			if (trimmed.contains(first) && trimmed.contains(last)) {
+				condition = true;
 				continue;
+			}
+
 			writer.write(currentLine + System.getProperty("line.separator"));
 		}
 		writer.close();
@@ -234,6 +238,7 @@ public class EmployeeManagementGUI {
 		inputFile.delete();
 		// rename to original name
 		tempFile.renameTo(finalFile);
+		return condition;
 	}
 
 	/**
@@ -245,15 +250,26 @@ public class EmployeeManagementGUI {
 	 */
 	public ObservableList view_the_manifest_GUI() throws IOException {
 		ArrayList<String> employees = new ArrayList<String>();
-		BufferedReader buff = new BufferedReader(new FileReader("employees.txt"));
-		String line = buff.readLine();
-		while (line != null) {
-			employees.add(line);
-			line = buff.readLine();
+		try {
+			BufferedReader buff = new BufferedReader(new FileReader("employees.txt"));
+			String line = buff.readLine();
+			while (line != null) {
+				employees.add(line);
+				line = buff.readLine();
+			}
+			buff.close();
+			if(!employees.isEmpty()) {
+				ObservableList<String> oEList = FXCollections.observableArrayList(employees);
+				return oEList;
+			}else {
+				return FXCollections.observableArrayList("No Employees Available to View.");
+			}
+
+		} catch(FileNotFoundException fnfe) {
+			
 		}
-		buff.close();
-		ObservableList<String> oEList = FXCollections.observableArrayList(employees);
-		return oEList;
+
+		return null;
 	}
 
 	public static void main(String[] args) {
